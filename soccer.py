@@ -33,8 +33,7 @@ class Goalkeeper(Sprite):
         """ Инициализирует вратаря и задает его начальную позицию."""
         self.screen = screen
         super(Goalkeeper, self).__init__()
-        
-        #self.screen = screen
+
         self.goalkeeper_speed_factor = 1.5
         
         # Загрузка изображения вратаря и получения прямоугольника.
@@ -113,7 +112,6 @@ def check_events(screen, goalkeeper):
                 goalkeeper.moving_right = True
             if event.key == pygame.K_LEFT:
                 goalkeeper.moving_left = True
-            
             if event.key == pygame.K_q:
                 sys.exit()
         elif event.type == pygame.KEYUP:
@@ -125,7 +123,6 @@ def check_events(screen, goalkeeper):
 def collide_goalkeeper_ball(goalkeeper, ball):
     """ Коллизия вратаря и мяча"""
     if pygame.sprite.collide_rect(goalkeeper, ball):
-        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         ball.y = goalkeeper.rect.top
         ball.ball_speed_factor *= -1
         
